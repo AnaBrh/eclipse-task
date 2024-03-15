@@ -1,0 +1,96 @@
+/* Base styles */
+.app {
+  font-family: 'Roboto', Arial, sans-serif;
+ }
+ 
+ .product-list {
+  display: flex;
+  flex-direction: column; /* Stack product cards vertically */
+  align-items: center; /* Center cards horizontally */
+  width: 100%; /* Ensure the list takes full width */
+ }
+ 
+ .product-card {
+  display: flex; /* Use flexbox for the card layout */
+  flex-direction: row; /* Arrange blocks horizontally */
+  width: 100%; /* Full width for desktop */
+  max-width: 100%; /* Ensure the card takes full width */
+  border-radius: 8px;
+  margin-bottom: 20px; /* Space between cards */
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+ }
+ 
+ .product-card img {
+  width: 30%; /* Adjust the width as needed */
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover; /* Ensure images cover the area without stretching */
+  margin-right: 20px; /* Space between image and details */
+ }
+ 
+ .title-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 60%; /* Adjust the width as needed */
+ }
+ 
+ .title-block h3 {
+  font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300))); /* Responsive font size */
+  font-weight: bold;
+  margin-top: 10px;
+ }
+ 
+ .title-block p {
+  margin-top: 10px;
+ }
+ 
+ .price-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 60%; /* Adjust the width as needed */
+ }
+ 
+ .price-block p {
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: right; /* Align price to the right */
+ }
+ 
+ .price-block button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #ee3c9e;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: flex-end; /* Align button to the end of the container */
+ }
+ 
+ /* Media queries for responsiveness */
+ @media (max-width: 768px) {
+  .product-card {
+     flex-direction: column; /* Stack items vertically for mobile */
+  }
+ 
+  .product-card img {
+     width: 100%; /* Full width on mobile */
+     margin-right: 0; /* Remove margin on mobile */
+  }
+ 
+  .title-block, .price-block {
+     width: 100%; /* Full width on mobile */
+  }
+ 
+  .price-block p {
+     text-align: center; /* Center price on mobile */
+  }
+ 
+  .price-block button {
+     align-self: center; /* Center button on mobile */
+  }
+ }
+ 
