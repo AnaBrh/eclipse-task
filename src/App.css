@@ -1,96 +1,219 @@
 /* Base styles */
 .app {
-  font-family: 'Roboto', Arial, sans-serif;
- }
- 
- .product-list {
-  display: flex;
-  flex-direction: column; /* Stack product cards vertically */
-  align-items: center; /* Center cards horizontally */
-  width: 100%; /* Ensure the list takes full width */
- }
- 
- .product-card {
-  display: flex; /* Use flexbox for the card layout */
-  flex-direction: row; /* Arrange blocks horizontally */
-  width: 100%; /* Full width for desktop */
-  max-width: 100%; /* Ensure the card takes full width */
-  border-radius: 8px;
-  margin-bottom: 20px; /* Space between cards */
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
- }
- 
- .product-card img {
-  width: 30%; /* Adjust the width as needed */
-  height: auto;
-  border-radius: 8px;
-  object-fit: cover; /* Ensure images cover the area without stretching */
-  margin-right: 20px; /* Space between image and details */
- }
- 
- .title-block {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 60%; /* Adjust the width as needed */
- }
- 
- .title-block h3 {
-  font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300))); /* Responsive font size */
-  font-weight: bold;
-  margin-top: 10px;
- }
- 
- .title-block p {
-  margin-top: 10px;
- }
- 
- .price-block {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 60%; /* Adjust the width as needed */
- }
- 
- .price-block p {
-  margin-top: 10px;
-  font-weight: bold;
-  text-align: right; /* Align price to the right */
- }
- 
- .price-block button {
-  margin-top: 10px;
-  padding: 8px 16px;
-  background-color: #ee3c9e;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  align-self: flex-end; /* Align button to the end of the container */
- }
- 
- /* Media queries for responsiveness */
- @media (max-width: 768px) {
-  .product-card {
-     flex-direction: column; /* Stack items vertically for mobile */
-  }
- 
-  .product-card img {
-     width: 100%; /* Full width on mobile */
-     margin-right: 0; /* Remove margin on mobile */
-  }
- 
-  .title-block, .price-block {
-     width: 100%; /* Full width on mobile */
-  }
- 
-  .price-block p {
-     text-align: center; /* Center price on mobile */
-  }
- 
-  .price-block button {
-     align-self: center; /* Center button on mobile */
-  }
- }
- 
+	font-family: "Roboto", Arial, sans-serif;
+}
+.icons-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 12%;
+	margin-top: auto;
+	padding: 0 20px;
+	gap: 10px;
+}
+.icons-container button {
+	border-style: solid;
+	border-width: 0.5px;
+	color: #585858;
+	border-color: #585858;
+	background-color: transparent;
+	cursor: pointer;
+	align-self: center;
+	align-items: center;
+	justify-content: center;
+	border-radius: 4px;
+}
+.product-list {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	padding-top: 20px;
+}
+.product-card {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	max-width: 98%;
+	border-radius: 15px;
+	border-color: #7a7a7a;
+	margin-bottom: 20px;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.product-card img {
+	width: 25%;
+	height: auto;
+	max-width: 100%;
+	border-radius: 8px;
+	object-fit: cover;
+	margin: 10px;
+}
+.title-block {
+	display: flex;
+	flex-direction: column;
+	width: 80%;
+	margin: 0 30px 0 30px;
+}
+.title-block h3 {
+	font-size: 25px;
+	font-weight: bold;
+	margin-top: 15px;
+	color: #252525;
+}
+#description {
+	margin-top: 20px;
+	font-size: 16px;
+	color: #252525;
+}
+#rating {
+	font-size: 16px;
+	color: #252525;
+}
+.price-block {
+	display: flex;
+	flex-direction: column;
+	width: 30%;
+	margin-top: 10px;
+}
+.price-block p {
+	text-align: left;
+}
+#original-price {
+	position: relative;
+	color: #adadad;
+	font-size: 16px;
+	text-decoration: line-through;
+	margin: 10px 0 0 0;
+	font-weight: bold;
+}
+#discounted-price {
+	color: #d21a48;
+	font-size: 25px;
+	margin: 0;
+	font-weight: bold;
+}
+#save-amount {
+	background-color: #ffc3cb;
+	padding: 0px 3px 0px 3px;
+	border-radius: 5px;
+	width: 50%;
+	text-align: center;
+	color: #d21a48;
+	margin-bottom: 20px;
+}
+.price-block button {
+	background-image: linear-gradient(to right, #d21a5e, #801177);
+	transition: background-color 0.3s ease;
+	margin: 10px;
+	padding: 8px 50px;
+	background-color: #d21a5e;
+	color: #fff;
+	border: none;
+	border-radius: 20px;
+	cursor: pointer;
+	align-self: center;
+	font-size: 15px;
+	font-weight: bold;
+	width: 100%;
+}
+.price-block button:hover{
+	box-shadow: 0 0 10px #d21a5e;
+}
+#heart:hover, #chart:hover {
+   box-shadow: 0 0 10px #d21a5e;
+}
+#options {
+	color: #252525;
+}
+.highest-rated {
+	border: 2px solid black;
+	box-shadow: 0 0 10px #d21a5e;
+}
+.eclipse-recommended {
+	position: absolute;
+	top: 20px;
+	left: 30px;
+	background-color: #252525;
+	color: white;
+	padding: 5px;
+	border-radius: 5px;
+}
+.details{
+padding-bottom: 15px;
+}
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+	.product-card {
+		flex-direction: column;
+		align-items: center;
+	}
+	.product-card img {
+		width: 100%;
+		margin: 10px 0;
+	}
+	.title-block {
+		width: 100%;
+		margin: 10px 0;
+	}
+	.price-block {
+		width: 100%;
+		margin: 10px 0;
+		order: 4;
+	}
+	.price-block p {
+		text-align: center;
+	}
+	.price-block button {
+		width: 100%;
+		margin: 10px 0;
+	}
+	.icons-container {
+		width: 100%;
+		margin: 10px 0;
+	}
+	#original-price {
+		position: relative;
+		color: #adadad;
+		font-size: 16px;
+		text-decoration: line-through;
+		margin: 10px 0 0 0;
+		font-weight: bold;
+		display: flex;
+	}
+	.price-save-duo {
+		display: flex;
+		flex-direction: row;
+	}
+	#discounted-price {
+		color: #d21a48;
+		font-size: 25px;
+		margin: 0;
+		font-weight: bold;
+	}
+	#save-amount {
+		background-color: #ffc3cb;
+		padding: 0px 1px 0px 1px;
+		border-radius: 5px;
+		width: 30%;
+		text-align: center;
+		color: #d21a48;
+		/* margin-bottom: 20px; */
+		margin: 10px;
+		align-items: center;
+	}
+	.stock-text {
+		display: flex;
+	}
+	.eclipse-recommended {
+		top: 20px;
+		left: 20px;
+		padding: 3px;
+	}
+}
+@media only screen and (max-width: 768px) {
+	#options,
+	.icons-container {
+		display: none;
+	}
+}
