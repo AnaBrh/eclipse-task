@@ -21,6 +21,7 @@ Features to be added/changed:
 - On mobile view, the title and rating should be at the top of the image, and description underneath the image
 - The layout needs to be modified slightly for tablets and extra large desktop screens
 - Different fonts to make it more aesthetically pleasing
+- Extra accessibility can be added
 
 ### Minimum requirements
 
