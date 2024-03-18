@@ -60,7 +60,7 @@ const Timer = ({ initialSeconds = 180 }) => {
 	};
 	// render the timer and delivery date information
 	return (
-		<div className="details">
+		<div className="details" role="timer" aria-label="Countdown timer">
 			{seconds > 0 ? (
 				<span>
 					Order in the next <strong>{formatTime(seconds)}</strong> for delivery on{" "}
