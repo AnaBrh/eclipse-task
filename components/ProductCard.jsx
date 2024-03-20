@@ -7,6 +7,7 @@ import {
 	faHeart,
 	faChartSimple,
 } from "@fortawesome/free-solid-svg-icons";
+import StarRating from "./StarRating";
 
 // component to display product details
 const ProductCard = ({ product, addToBasket, isHighestRated }) => {
@@ -45,7 +46,10 @@ const ProductCard = ({ product, addToBasket, isHighestRated }) => {
 			<img src={mainImage} alt={capitalizeFirstLetter(product.title)} />
 			<section className="title-block">
 				<h3>{capitalizeFirstLetter(product.title)}</h3>
-				<p>Rating {product.rating}</p>
+				<div className="rating-block">
+					<StarRating rating={product.rating} />
+					<p id="reviews-dummy">20 Reviews </p>
+				</div>
 				<p id="description">
 					<FontAwesomeIcon icon={faCheck} /> {product.description}
 				</p>
