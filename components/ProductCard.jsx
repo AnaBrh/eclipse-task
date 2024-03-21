@@ -1,49 +1,40 @@
 import React from "react";
-import Timer from "./Timer";
-import StockStatus from "./Stock";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+	Timer,
+	StockStatus,
+	StarRating,
+	FontAwesomeIcon,
 	faCheck,
 	faHeart,
 	faChartSimple,
-} from "@fortawesome/free-solid-svg-icons";
-import StarRating from "./StarRating";
+	useProductPrice,
+	capitalizeFirstLetter,
+	AddToBasket,
+	ProductImage,
+} from "../utils/index";
 
 // component to display product details
-const ProductCard = ({ product, addToBasket, isHighestRated }) => {
-	// function to add product to basket
-	const handleAddToBasket = () => {
-		addToBasket(product.id, product.price);
-	};
+const ProductCard = ({ product, isHighestRated }) => {
+	const { discountedPrice, amountSaved } = useProductPrice(product);
 
-	// get main image or thumbnail if image not available
-	const mainImage =
-		product.images && product.images.length > 0
-			? product.images[0]
-			: product.thumbnail || "";
+	// check if stock is low (less than or equal to 20)
+	const isStockLow = product.stock <= 20;
 
-	// function to capitalize first letter of a string (some titles were in lower case)
-	const capitalizeFirstLetter = (string) => {
-		return string.replace(/\b\w/g, (char) => char.toUpperCase());
-	};
-
-	// calculate discounted price
-	const calculateDiscountedPrice = () => {
-		const discount = product.discountPercentage / 100;
-		return product.price - product.price * discount;
-	};
-
-	// calculate amount saved
-	const calculateAmountSaved = () => {
-		return product.price - calculateDiscountedPrice();
+	// style for price based on stock level
+	const priceStyle = {
+		color: isHighestRated ? "#d21a45" : isStockLow ? "#252525" : "#252525",
 	};
 
 	return (
 		<div className={`product-card ${isHighestRated ? "highest-rated" : ""}`}>
 			{isHighestRated && (
 				<div className="eclipse-recommended">Eclipse recommended</div>
-			)}{" "}
-			<img src={mainImage} alt={capitalizeFirstLetter(product.title)} />
+			)}
+			<ProductImage
+				images={product.images}
+				thumbnail={product.thumbnail}
+				title={product.title}
+			/>
 			<section className="title-block">
 				<h3>{capitalizeFirstLetter(product.title)}</h3>
 				<div className="rating-block">
@@ -71,21 +62,22 @@ const ProductCard = ({ product, addToBasket, isHighestRated }) => {
 					})}
 				</p>
 				<div className="price-save-duo">
-					<p id="discounted-price">
-						{" "}
-						{calculateDiscountedPrice().toLocaleString("en-GB", {
-							style: "currency",
-							currency: "GBP",
-						})}
-					</p>
-					<p id="save-amount">
-						Save{" "}
-						{calculateAmountSaved().toLocaleString("en-GB", {
-							style: "currency",
-							currency: "GBP",
-						})}
-					</p>
-				</div>
+          <p id="discounted-price" style={priceStyle}>
+            {discountedPrice.toLocaleString("en-GB", {
+              style: "currency",
+              currency: "GBP",
+            })}
+          </p>
+          {isHighestRated && (
+            <p id="save-amount" style={{ color: "#d21a45" }}>
+              Save{" "}
+              {amountSaved.toLocaleString("en-GB", {
+                style: "currency",
+                currency: "GBP",
+              })}
+            </p>
+          )}
+        </div>
 				<StockStatus stock={product.stock} />
 				<section>
 					<Timer />
@@ -96,9 +88,7 @@ const ProductCard = ({ product, addToBasket, isHighestRated }) => {
 						<FontAwesomeIcon icon={faCheck} /> PayPal credit available
 					</p>
 				</section>
-				<button onClick={handleAddToBasket} aria-label="Add to basket">
-					ADD TO BASKET
-				</button>
+				<AddToBasket productId={product.id} price={product.price} />
 			</section>
 		</div>
 	);
