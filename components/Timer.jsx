@@ -35,11 +35,12 @@ const Timer = ({ initialSeconds = 180 }) => {
 	const calculateDeliveryDate = () => {
 		const deliveryDate = new Date();
 		deliveryDate.setDate(deliveryDate.getDate() + 2);
-
 		const day = deliveryDate.getDate();
+
 		// get the correct suffix for the day
 		const suffix = getDaySuffix(day);
 		const month = deliveryDate.toLocaleDateString("en-US", { month: "long" });
+
 		// return formatted delivery date string
 		return `${day}${suffix} ${month}`;
 	};
@@ -64,8 +65,8 @@ const Timer = ({ initialSeconds = 180 }) => {
 		<div className="details" role="timer" aria-label="Countdown timer">
 			{seconds > 0 ? (
 				<span>
-					<FontAwesomeIcon icon={faTruck} size="1x" color="#2a2a2a"/> Order in the next{" "}
-					<strong>{formatTime(seconds)}</strong> for delivery on{" "}
+					<FontAwesomeIcon icon={faTruck} size="1x" color="#2a2a2a" /> Order in the
+					next <strong>{formatTime(seconds)}</strong> for delivery on{" "}
 					<strong>{calculateDeliveryDate()}</strong>
 				</span>
 			) : (

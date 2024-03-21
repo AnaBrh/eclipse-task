@@ -92,7 +92,6 @@
 	font-weight: bold;
 }
 #discounted-price {
-	/* color: #d21a48; */
 	font-size: 30px;
 	margin: 0;
 	font-weight: bold;
@@ -213,7 +212,6 @@
 		width: 30%;
 		text-align: center;
 		color: #d21a48;
-		/* margin-bottom: 20px; */
 		margin: 10px;
 		align-items: center;
 	}

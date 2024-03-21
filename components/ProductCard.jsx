@@ -62,22 +62,22 @@ const ProductCard = ({ product, isHighestRated }) => {
 					})}
 				</p>
 				<div className="price-save-duo">
-          <p id="discounted-price" style={priceStyle}>
-            {discountedPrice.toLocaleString("en-GB", {
-              style: "currency",
-              currency: "GBP",
-            })}
-          </p>
-          {isHighestRated && (
-            <p id="save-amount" style={{ color: "#d21a45" }}>
-              Save{" "}
-              {amountSaved.toLocaleString("en-GB", {
-                style: "currency",
-                currency: "GBP",
-              })}
-            </p>
-          )}
-        </div>
+					<p id="discounted-price" style={priceStyle}>
+						{discountedPrice.toLocaleString("en-GB", {
+							style: "currency",
+							currency: "GBP",
+						})}
+					</p>
+					{isHighestRated && (
+						<p id="save-amount" style={{ color: "#d21a45" }}>
+							Save{" "}
+							{amountSaved.toLocaleString("en-GB", {
+								style: "currency",
+								currency: "GBP",
+							})}
+						</p>
+					)}
+				</div>
 				<StockStatus stock={product.stock} />
 				<section>
 					<Timer />
