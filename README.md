@@ -15,13 +15,11 @@ The requirements were:
 - If user refreshes the page before the 3 minutes are up, the same data to be displayed (local storage was used to save the current products shown and then a check for timestamp is done to determine if data is stale or not, if data is stale, it proceeds to fetch new data and store it, if data is not stale, it just shows the data from storage and restarts the timer)
 - A countdown provided to keep track of the 3 minutes
 - A stock bar that updates based on stock, along with indicative colours to show the user if an item is in stock or almost sold out
+- A read-only star rating system, can easily be changed for user interaction if needed
 
 Features to be added/changed:
-- A star rating display instead of text to be added
-- On mobile view, the title and rating should be at the top of the image, and description underneath the image
-- The layout needs to be modified slightly for tablets and extra large desktop screens
-- Different fonts to make it more aesthetically pleasing
-- Extra accessibility can be added
+- The title and rating on mobile view should be on top of the image, and description underneath the image.
+Currently I can either have the mobile layout look perfect but it messes with the desktop layout, or the other way around. Have tried grid and flexbox, but to no avail. I will look into this some more and update it when it works.
 
 ### Minimum requirements
 
