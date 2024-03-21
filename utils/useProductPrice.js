@@ -9,8 +9,10 @@ const useProductPrice = (product) => {
         	// calculate discounted price
         const discount = product.discountPercentage / 100;
         const discounted = product.price - product.price * discount;
+
         	// calculate amount saved
         const saved = product.price - discounted;
+        
         // set the states
         setDiscountedPrice(discounted);
         setAmountSaved(saved);
