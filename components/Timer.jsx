@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { FontAwesomeIcon, faTruck } from "../utils/index";
 
 // timer component that counts down from a given initial time (default 180 seconds)
 const Timer = ({ initialSeconds = 180 }) => {
@@ -63,7 +64,8 @@ const Timer = ({ initialSeconds = 180 }) => {
 		<div className="details" role="timer" aria-label="Countdown timer">
 			{seconds > 0 ? (
 				<span>
-					Order in the next <strong>{formatTime(seconds)}</strong> for delivery on{" "}
+					<FontAwesomeIcon icon={faTruck} size="1x" color="#2a2a2a"/> Order in the next{" "}
+					<strong>{formatTime(seconds)}</strong> for delivery on{" "}
 					<strong>{calculateDeliveryDate()}</strong>
 				</span>
 			) : (
